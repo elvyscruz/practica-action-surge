@@ -13,13 +13,11 @@ jobs:
       - name: Clona el repositorio
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-          with:
-            node-version: 18
 
-    - name: Hacer el Build y Desplegar
-      run: |
-        # Configurar Surge.sh
-        npm install --global surge
+      - name: Hacer el Build y Desplegar
+        run: |
+            # Configurar Surge.sh
+            npm install --global surge
 
-        # Desplegar en Surge.sh
-        surge --project ./ --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+            # Desplegar en Surge.sh
+            surge --project ./ --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
